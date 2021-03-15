@@ -1,0 +1,11 @@
+#nav {
+  border-bottom: 5px solid red;
+}
+
+nav {
+  border-bottom: 4px dotted blue;
+}
+
+nav {
+  border-bottom: double;
+}

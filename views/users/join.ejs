@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/javascripts/stylesheets/style.css">
+
+<div style="width: 480px; height: 50px;">
+</div>
+
+<h4>Join new groups</h4>
+
+<% layout('layouts/boilerplate') -%>
+
+
+
+<h6>Join by map</h6>
+<p>Navigate the map to find the location of the group you want to join:)</p>
+<div id='map' style='width: 480px; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYXJuZWpvciIsImEiOiJja2xrZ3RjaXgwNGxsMndtd2c1dGdiOWhzIn0.yx2qojumUfuRN-4AX2Cxow';
+var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 4 // starting zoom
+});
+new mapboxgl.Marker()
+    .setLngLat([30.5, 50.5])
+    .addTo(map)
+
+
+</script>
+
+
+
+<div style="margin-bottom: 300px;">
+    <h3>Here you can search for groups</h3>
+    <form action="/groups/search" method="get">
+        <input type="text" id="groupSearch" name="groupSearch" value="Enter here">
+    </form>
+</div>
+
+
+<% for (let group of groups.reverse()){%>
+
+    
+    <div class="card border-info mb-4" style="max-width: 30rem;">
+        <div class="card-header">Name: <%= group.name%></div>
+    
+        <div>Description: <%=group.description%></div>
+    
+
+    <%if(JSON.stringify(group.author) === JSON.stringify(currentUser._id)){%>
+    
+    
+   
+    <form action="/groups/<%=currentUser._id%>/delete/<%=group._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-secondary">Delete Group</button>
+    </form>
+    <% }%>
+
+    <form action="/groups/<%=currentUser._id%>/join/<%=group._id%>" method="POST">
+        
+        
+
+        <%if(!currentUser.groups.includes(group._id)){%>
+<% if(group.passwordTrue === true){ %>
+             <div>You need to enter the password to join this group</div>
+            <label for="password">Enter password</label>
+            <input type="password" id="password" name="password" required>
+        <%}%>
+
+
+        <div>
+            <button class="btn btn-secondary">Join group</button>
+        </div>
+        <%} else {%>
+            <p>You are already in this group</p>
+        <% } %>
+
+    </form>
+
+    </div>
+    
+<% }%>
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <% layout('layouts/boilerplate') -%>
+    <h1>Add new notification</h1>
+    <form action="/notifications" method="POST" novalidate class="validated-form">
+        <div class="form-div mb-4">
+            <label class="form-label" for="">User defined Message</label>
+            <input class="form-control" type="text" id="message", name="notification[message]" required>
+        </div>
+        <div class="form-div mb-4">
+            <label class="form-label" for="">Date</label>
+            <input class="form-control" type="text" id="date", name="notification[date]" required>
+        </div>
+        <div class="form-div mb-4">
+            <label class="form-label" for="">Type</label>
+            <input class="form-control" type="text" id="type", name="notification[type]" required>
+        </div>
+
+        <h4>Groups:</h4>
+        <p>Select which groups you want to share your notification with</p>
+        <% for (let group of user.groups){%>
+
+         
+        <div>
+            <input type="checkbox" id="groups" name="notification[groups]" value="<%=group._id%>" >
+
+            <label for="groups"><%=group.name%> </label>
+
+        </div>
+        <% } %>
+        
+        </div>
+
+
+        <button class="btn btn-success mt-4">Add Notification</button>
+
+        
+        
+
+    
+    
+
+
+    <div><a href="/notifications">Go back to view notifications by clicking this link</a> 
+        </div>
+</body>
+</html>
+<!---user: String,
+type: String,
+message: String,
+group: String,
+room: String,
+date: String,
+anonymous: Boolean-->
+
+

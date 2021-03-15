@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="/javascripts/stylesheets/style.css">
+
+<% layout('layouts/boilerplate') -%>
+
+<link rel="stylesheet" href="/javascripts/stylesheets/notifications.css">
+
+<!-- This is the notifications page. Here we need some working, see template-->
+
+<!-- Input when creating a new notification-->
+<h1>Add new notification</h1>
+    <form action="/notifications" method="POST" novalidate class="validated-form">
+        <div class="form-div">
+            <label class="form-label" for="" ></label>
+            <input class="form-control" type="text" value="Enter your message"id="message", name="notification[message]" required>
+        </div>
+        <label for="Complaint">Complaint</label>
+        <input type="radio" name="notification[type]" id="Complaint" value="Complaint">
+        <label for="Alert">Alert</label>
+        <input type="radio" name="notification[type]" id="Alert" value="Alert">
+        <label for="Worry">Worry</label>
+        <input type="radio" name="notification[type]" id="Worry" value="Worry">
+        <label for="Notification">Notification</label>
+        <input type="radio" name="notification[type]" id="Notification" value="Notification">
+        <% for (let group of user.groups){%>
+        <div>
+            <input type="checkbox" id="groups" name="notification[groups]" value="<%=group._id%>" >
+            <label for="groups"><%=group.name%> </label>
+        </div>
+        <% } %>
+        
+        </div>
+
+        <!-- trying to add date -->
+        <script>
+            const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        </script>
+    <button class="btn btn-success mb-4">Add Notification</button>
+      </form>
+</div>
+</div>
+
+<!--test -->
+
+
+
+
+<% let i = 0%>
+<% const note = notifications%>
+
+
+<% for(i in note){ %>
+<%const notification = note[i]%>
+<% if (currentUser.groups.includes(notification.groups[0]) || currentUser.groups.includes(notification.groups[1]) || currentUser.groups.includes(notification.groups[2]) ){%>
+    <% if (notification.type === "Worry") { %>
+        <div class="card mb-4 worry" style="max-width: 30rem; border-radius: 4px;">
+        <div class="header-info worry-head   card-header   " style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+    <%} else if (notification.type === "Notification") {%>
+        <div class="card mb-4 notification" style="max-width: 30rem; border-radius: 22px;">
+        <div class="card-header header-info notification-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+    <%} else if (notification.type === "Complaint") {%>
+        <div class="card mb-4 complaint" style="max-width: 30rem; border-radius: 25px;">
+        <div class="card-header header-info complaint-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+    <%} else {%>
+        <div class="card mb-4 alert1" style="max-width: 30rem; border-radius: 25px;">   
+        <div class="card-header header-info alert1-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+    <%}%>
+        <p>Groups:
+        <% for (let group of user.groups) { %>
+            <% if (notification.groups.includes(group._id)) { %>
+                <%=group.name%>,
+                <% }%>    
+        <% }%> 
+        </p> 
+        </div>
+    
+        <div class="card-body text-black">
+            <h5 class="card-title"><%= notification.type%></h5>
+            <p class="card-text"><%= notification.message%></p>
+            <p class="card-text">Posted at <%= notification.date.toLocaleDateString()%></p>
+        </div>    
+        <div class="card-footer bg-transparent border-success">
+    <% if (currentUser && notification.author.equals(currentUser._id)) { %>
+            <div style="width: 1000px; ">
+                    <div>
+                         <button onclick="location.href='/notifications/<%=notification._id%>/edit'" type="button" class="btn btn-info" style="border-radius: 30px;">Edit notification</button>
+                    </div>
+                    <div>
+                        <form action="/notifications/<%=notification._id%>/delete?_method=DELETE" method="POST" >
+                                <button class="btn btn-secondary" style="border-radius: 30px;">Delete notification</button>
+                        </form>
+                    </div>
+            </div>
+
+    <% }else{ %>
+            <form action="/notifications/<%=notification._id%>/response" method="POST">
+                <p></p>
+                <div>
+                    <input type="checkbox" id="response" name="notification[response]" value=true >
+                    <label for="response">Agree </label>
+                    <button>Submit</button>
+                </div>
+                
+            </form>
+
+
+    <% }%>
+</div>
+
+</div>
+
+
+<% }%>
+<% i++ %>
+<% }%>
+
+
+
+
+
+
+<!--
+<!-- 
+<!--
+<!--<!---->
+<!--<% const notes = notifications.reverse()%>
+<!--<% for (let notification of notifications){%>
+<!--    <!-- This if-statement decides the style of the card, based on the type of notification.-->
+<!--    <% if (currentUser.groups.includes(notification.groups[0]) || currentUser.groups.includes(notification.groups[1]) || currentUser.groups.includes(notification.groups[2]) ){%>
+<!--    
+<!--        <% if (notification.type === "Worry") { %>
+<!--            <div class="card mb-4 worry" style="max-width: 30rem; border-radius: 25px;">
+<!--            <div class="header-info worry-head   card-header   " style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+<!--        <%} else if (notification.type === "Notification") {%>
+<!--            <div class="card mb-4 notification" style="max-width: 30rem; border-radius: 22px;">
+<!--            <div class="card-header header-info notification-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+<!--        <%} else if (notification.type === "Complaint") {%>
+<!--            <div class="card mb-4 complaint" style="max-width: 30rem; border-radius: 25px;">
+<!--            <div class="card-header header-info complaint-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+<!--        <%} else {%>
+<!--            <div class="card mb-4 alert1" style="max-width: 30rem; border-radius: 25px;">   
+<!--            <div class="card-header header-info alert1-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+<!--        <%}%>
+<!--            <p>Groups:
+<!--            <% for (let group of user.groups) { %>
+<!--                <% if (notification.groups.includes(group._id)) { %>
+<!--                    <%=group.name%>,
+<!--                    <% }%>     
+<!--            <% }%> 
+<!--            </p> 
+<!--            </div>
+<!--
+<!--            <div class="card-body text-black">
+<!--                <h5 class="card-title"><%= notification.type%></h5>
+<!--                <p class="card-text"><%= notification.message%></p>
+<!--                <p class="card-text"><%= notification.date%></p>
+<!--            </div>    
+<!--        <% if (currentUser && notification.author.equals(currentUser._id)) { %>
+<!--                <div style="width: 1000px; ">
+<!--                        <div>
+<!--                             <button onclick="location.href='/notifications/<%=notification._id%>/edit'" type="button" class="btn btn-info" style="border-radius: 30px;">Edit notification</button>
+<!--                        </div>
+<!--                        <div>
+<!--                            <form action="/notifications/<%=notification._id%>/delete?_method=DELETE" method="POST" >
+<!--                                    <button class="btn btn-secondary" style="border-radius: 30px;">Delete notification</button>
+<!--                            </form>
+<!--                        </div>
+<!--                </div>
+<!--        <% } %>
+<!--    </div>
+<!--    
+<!--    <% }%>   
+<!--<% }%>
+<!--
+<!--

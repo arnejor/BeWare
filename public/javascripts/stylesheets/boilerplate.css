@@ -1,0 +1,74 @@
+/* The sidebar menu */
+.sidenav {
+    height: 250px; /* Full-height: remove this if you want "auto" height */
+    width: 250px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 1; /* Stay at the top */
+    left: 10;
+    background-color: rgb(255, 255, 255); /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    margin-top: 50px;
+    margin-left: -300px;
+    border-right-style: solid;
+    border-color: #00e1ff;
+    border-width: 2.5px;
+    border-radius: 25px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #1fc0ff;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  @media screen and (max-width: 1500px) {
+    /* The sidebar menu */
+.sidenav {
+  height: 0px; /* Full-height: remove this if you want "auto" height */
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 1; /* Stay at the top */
+  left: 10;
+  background-color: rgb(255, 255, 255); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  margin-top: 50px;
+  margin-left: -300px;
+  border-right-style: solid;
+  border-color: #00e1ff;
+  border-width: 2.5px;
+  border-radius: 25px;
+}
+  }   
+
+  
+.bottom {
+    background-color: brown;
+    border-width: 3px;
+    border-color: aqua;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    bottom: 0;
+  
+}

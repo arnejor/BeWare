@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/javascripts/stylesheets/style.css">
+
+
+<h2>Add groups</h2>
+
+<% layout('layouts/boilerplate') -%>
+
+<h6>Add new groups</h6>
+<div class="" style="max-width: 30rem;">
+
+<form action="/groups/<%=currentUser._id%>/new" method="POST">
+    <div>
+        <label for="name">Name</Label>
+            <textarea class="form-control" name="group[name]" id="name" cols="30" rows="1"></textarea>
+    </div>
+    <div>
+        <label for="address">Address</Label>
+            <textarea class="form-control" name="group[location]" id="location" cols="30" rows="1"></textarea>
+    </div>
+
+    
+
+    <div>
+        <label for="description">Description</Label>
+            <textarea class="form-control" name="group[description]" id="description" cols="30" rows="1"></textarea>
+    </div>
+
+    <div>
+        <label for="passwordTrue">Should the group be password-protected?</Label>
+        <input type="checkbox" id="passwordTrue" name="group[passwordTrue]" value = true>
+    </div>
+
+
+    <div>
+       
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="group[password]">
+    </div>
+
+
+    <button class="btn btn-info mt-3 mb-3">Add</button>
+</form>
+
+</div>

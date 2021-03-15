@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="/javascript/stylesheets/navbar.css">
+<nav class="navbar navbar-light" style="background-color: #ffffff; border-bottom: 1px solid rgb(0, 153, 255); text-align: center;" id="nav">
+    <div class="container-fluid mb-1">
+      <a class="navbar-brand" style="text-align: left;" href="/">CloudAwareness</a>
+      <a class="nav-link active" aria-current="page" style="" href="/">Home</a>
+      <a class="nav-link active" aria-current="page" href="/">Home</a>
+      <a class="nav-link active" aria-current="page"  href="/">Home</a>
+      <a class="nav-link active" aria-current="page"  href="/">Home</a>
+
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link" href="/myawareness">MyAwareness</a>
+        </div>
+        <div class="navbar-nav ml-1">
+
+          <% if(!currentUser) {%>
+          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/register">Register</a>
+          <% } else {%>
+          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link">You are logged in as: <%=currentUser.username%></a>
+          <% } %>
+
+
+        </div>
+      </div>
+    </div>
+</nav>

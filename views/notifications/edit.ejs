@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
+
+    <title>Edit notification</title>
+</head>
+
+<body>
+    <% layout('layouts/boilerplate') -%>
+
+
+    
+    <form action="/notifications/<%=notification._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+        
+        <div class="form-div mb-4">
+            <label for="">Message</label>
+            <input class="form-control" type="text" id="message", name="notification[message]" value="<%=notification.message%>" required>
+        </div>
+        
+        
+        <div class="form-div mb-4">
+            <label for="">Type</label>
+            <input class="form-control" type="text" id="type", name="notification[type]" value="<%=notification.type%>" required>
+        </div>
+
+        <button class="btn btn-info" style="border-radius: 30px;">Edit Notification</button>
+    </form>
+    <form action="/notifications" method="GET" >
+        <button class="btn btn-secondary" style="border-radius: 30px;">Go back</button>
+</form>
+</body>
+</html>
+<!---user: String,
+type: String,
+message: String,
+group: String,
+room: String,
+date: String,
+anonymous: Boolean-->
