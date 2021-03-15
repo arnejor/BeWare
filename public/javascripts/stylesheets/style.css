@@ -1,4 +1,11 @@
 body {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'Varela Round', sans-serif;
+    /* font-family: 'Baloo 2', cursive; */
     height: 100px;
+}
+
+
+#logoFont {
+font-family: 'Fredoka One', cursive;
+ 
 }
