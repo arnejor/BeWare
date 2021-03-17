@@ -1,7 +1,9 @@
 /* myStyle.css */
 body {
-    background-image: url("photo-1602667299031-241877c8deb91.jpg");
-    color: #3d6153;
+    background-color: #3d6153;
+    font-family: 'Fredoka One', cursive;
+    /* font-family: 'Baloo 2', cursive; */
+    height: 100px;
 }
 
 h1 {

@@ -15,8 +15,47 @@ body {  margin-top: 0em; }
 
 }
 
+.typeBtn{
+    background-color: teal;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 2px;
+}
 
+.testBtn {
+    background-color: rgb(0, 124, 128);
+}
 
+.radioBtn {
+    width: 24.2%;
+}
+
+.userText {
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-width: 0px;
+    margin-top: 0px;
+}
+
+.newNotification {
+    border-color: teal;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    border-radius:25px;
+    width: 100%;
+    border-width: 1px;
+
+    border-bottom-width: 1px;
+    border-style: solid;
+}
+.buttonText{
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+}
 
 
 .alert1 {
@@ -26,10 +65,9 @@ body {  margin-top: 0em; }
     border-color: rgba(0, 102, 255, 0.555);
     border-radius: 25px;
     border-top-left-radius: 25px;
-    background-color: rgba(44, 62, 141, 0.096);
-
+    background-color: rgb(44, 138, 141);
+    color: white;
 }
-
 
 
 
@@ -37,13 +75,20 @@ body {  margin-top: 0em; }
 
 
 .notification {
-    border-color: rgb(0, 204, 255);
+    border-color: rgb(20, 77, 100);
+    border-width: 2px;
+    border-top-width: 2px;
+    border-radius: 25px;
+
 }
 .notification-head {
-    border-bottom-color: rgba(0, 174, 255, 0.719);
+    border-bottom-color: rgba(20, 77, 100);
     border-radius: 25px;
     border-top-left-radius: 25px;
-    background-color: rgba(0, 204, 255, 0.267);
+    background-color: rgb(0, 120, 150);
+    border-width: 3px;
+    color: white;
+    
 
 }
 

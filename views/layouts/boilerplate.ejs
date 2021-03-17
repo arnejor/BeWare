@@ -47,53 +47,51 @@
 </head>
 <!-- -->
 
-<body class="d-flex flex-column vh-100" margin-top="1em" bottommargin="3" style="background-color: rgb(255, 255, 255); height: 100%;">
+<body class="d-flex flex-column vh-100" margin-top="1em" bottommargin="3" style="background-color: rgba(241, 241, 241, 0.623); height: 100%;">
     
     
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" id="logoFont" style="margin-left: 200px; margin-right: 200px; color: white; border-bottom-width: 3px; border-bottom-color: teal; border-bottom-style: solid;" >
-    <a class="navbar-brand" href="#">BeWare</a>
+
+ 
+
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" id="logoFont" style=" color: white; border-bottom-width: 3px; border-bottom-color: teal; border-bottom-style: solid;" >
+    <div style="width: 150px;">
+      <img src="/javascripts/ex2.png" alt="" style="width: 25px;" href="/notification">    
+      <a class="navbar-brand" href="/notifications">BeWare</a>
+    
+    </div>
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">test</span>
+      <span class="">Menu</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/notifications">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/notifications">Home</a>
         </li>
-        <li class="nav-item active">
-          <img scr="/views/layouts/logo.png">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/rwar/groups">Groups</a>
+        </li>
 
         </li>
         <%if(currentUser){%>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="/logout">Logout</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Account</a>
         </li>
         <%}else{%>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+          <div class="navbar-nav ml-auto">
+          <li class="nav-item ml-auto">
+            <a class="nav-link ml-auto" href="#">Login</a>
           </li>
-        <%}%>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Groups</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
-          <div class="dropdown-menu nav-item active" style="margin-left: 300px;" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">New notification</a>
-            <a class="dropdown-item" href="#">Groups</a>
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Contact</a>
-
           </div>
-
-          
-        </li>
-        <div class="language-picker js-language-picker">
+        <%}%>
+        
+        -->
+        <!--<div class="language-picker js-language-picker" style="">
           <form action="" class="language-picker__form btn btn-green dropdown-toggle"  id="dropdownMenuButton">
             <label for="language-picker-select">Select your language</label>
         
@@ -118,12 +116,52 @@
     <main class="container" style="width: 60rem; height: 100px; display: inline-block" >
       
 <div class="sidenav flex-sm-column">
-      <a href="/notifications">New Notification</a>
-      <a href="">Groups</a>
-      <a href="">Profile</a>
-      <a href="#">Contact</a>
-      <a href="">About</a>
-    </div>
+      <a href="/notifications"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+      </svg> Notifications</a>
+      <a href="/rwar/groups">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+      </svg> Groups</a>
+      <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      </svg> Profile</a>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone-fill" viewBox="0 0 16 16">
+        <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+      </svg> Contact</a>
+      <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
+        <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
+      </svg> About</a>
+
+      
+
+
+</div>
+
+<div class="info flex-sm-column">
+
+<p>© BeWare 2021,
+</p>
+<p> All rights reserved
+</p>
+</div>
+
+
+<div class="right" >
+  <%var d=new Date();  %>
+  <%var n=d.getDate();  %>
+  <%var m=d.getMonth();  %>
+  <%var o=d.getHours();  %>
+  <%var q=d.getMinutes();  %>
+
+<p style="margin-left: 10px;">Date: <%=n%>.<%=m%> </p>
+<p style="margin-left: 10px;">Time: <%=o%>.<%=q%> </p>
+
+</div>
+    
 
         <%- include("../partials/flash") -%>
         <%- body -%>
