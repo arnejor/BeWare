@@ -15,11 +15,13 @@ body {  margin-top: 0em; }
 
 }
 
+
+
 .typeBtn{
     background-color: teal;
     border-radius: 25px;
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
 }
 
 .testBtn {
@@ -27,17 +29,53 @@ body {  margin-top: 0em; }
 }
 
 .radioBtn {
-    width: 24.2%;
+    width: 24%;
+    color: black;
+    background-color: rgba(0, 128, 128, 0.534);
+    border-color: rgb(3, 17, 13);
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    
+    
 }
+
+
+
+
+.not {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.com {
+    border-radius: 0px;
+}
+.al {
+    border-radius: 0px;
+}
+.wor {
+    margin-right: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;}
+    
+
 
 .userText {
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
     border-width: 0px;
     margin-top: 0px;
+    width: 99%;
+    margin-bottom: 20px;
 }
 
+
+
+
 .newNotification {
+    background-color: white;
     border-color: teal;
     margin-top: 0px;
     margin-bottom: 50px;
