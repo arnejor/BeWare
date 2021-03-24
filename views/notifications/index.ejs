@@ -1,4 +1,7 @@
 
+<%- include("../partials/sidebar") -%>
+<%- include("../partials/timedate") -%>
+
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
 
 <% layout('layouts/boilerplate') -%>
@@ -7,23 +10,25 @@
 <link rel="stylesheet" href="/javascripts/stylesheets/radio.scss">
 
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+-->
 
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
 
   
     <!-- This is the notifications page. Here we need some working, see template-->
 
 <!-- Input when creating a new notification-->
-<div style="border-left-width: 0px; border-left-style: solid; margin-bottom: 20px;" >
+<div style="display: flex; justify-content: space-around; width: 100%;">
+    
+    <div style="border-left-width: 0px; border-left-style: solid; margin-bottom: 20px; width: 60%;" >
         <h4 style="text-shadow: black; margin-top: 0px;" id="logoFont">Notifications</h4>
 
-    <div style="width: 100%;" class="newNotification">
-        <form action="/notifications" method="POST" novalidate class="validated-form">
+    <!-- This is the new notification form-->    
+        <div style="" class="newNotification">
+            <form action="/notifications" method="POST" novalidate class="validated-form">
         <!-- TYPE INPUT-->
         <script>
             // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -91,9 +96,20 @@
                 const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             </script>
         <button class="buttonText btn btn-success testBtn" style="color: rgb(255, 255, 255);">Add Notification</button>
-          </form>
+            </form>
+        </div>
+    </div>
+    <!-- Here I try to add sorting functionality-->
+    <div style="width: 30%; " >
+        <h4>Sort Notifications</h4>
+        
+        <div class="newNotification" style=" width: 100%;" >
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis officia iusto velit recusandae! Praesentium, ipsam, ea ullam animi dolorem omnis autem mollitia maiores ducimus nemo, asperiores possimus id modi explicabo!</p>
+        </div>
     </div>
 
+    </div>
+</div>
 <!--test -->
 
 
@@ -104,10 +120,10 @@
 <%const notification = note[i]%>
 <% if (currentUser.groups.includes(notification.groups[0]) || currentUser.groups.includes(notification.groups[1]) || currentUser.groups.includes(notification.groups[2]) ){%>
     <% if (notification.type === "Worry") { %>
-        <div class="card mb-5 worry" style=" border-radius: 25px;">
+        <div class="card mb-5 worry" style=" border-radius: 25px; background-color: rgba(165, 42, 42, 0.082);">
         <div class="header-info worry-head   card-header   " style="border-top-left-radius: 25px; border-top-right-radius: 25px;">
     <%} else if (notification.type === "Notification") {%>
-        <div class="card mb-5 notification" style=" border-radius: 25px;">
+        <div class="card mb-5 notification" style=" border-radius: 25px; background-color: rgba(0, 255, 255, 0.116);">
         <div class="card-header header-info notification-head" style="border-top-left-radius: 25px; border-top-right-radius: 25px;">
     <%} else if (notification.type === "Complaint") {%>
         <div class="card mb-5 complaint" style=" border-radius: 25px;">

@@ -1,4 +1,4 @@
-.login {
+.join {
     border-radius: 25px;
     width: 100%;
     border-style: solid;
@@ -6,7 +6,15 @@
     background-color: cadetblue;
     border-color: black;
 }
-.reg {
+.new {
+    border-radius: 25px;
+    width: 100%;
+    border-style: solid;
+    color: rgb(255, 255, 255);
+    background-color: rgba(63, 107, 69, 0.733);
+    border-color: black;
+}
+.back {
     border-radius: 25px;
     width: 100%;
     border-style: solid;

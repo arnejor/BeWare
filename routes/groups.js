@@ -1,5 +1,9 @@
 const express = require("express");
 const catchAsync = require("../utils/catchAsync");
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+// FIX THIS TO THE .env FILE
+const geocoder = mbxGeocoding({ accessToken: "pk.eyJ1IjoiYXJuZWpvciIsImEiOiJja2xrZ3RjaXgwNGxsMndtd2c1dGdiOWhzIn0.yx2qojumUfuRN-4AX2Cxow" });
 
 const router = express.Router();
 const User = require("../models/user");

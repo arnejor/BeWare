@@ -1,3 +1,9 @@
+
+<link rel="stylesheet" href="/javascripts/stylesheets/users.css">
+<link rel="stylesheet" href="/javascripts/stylesheets/style.css">
+<%- include("../partials/sidebar") -%>
+
+<% layout('layouts/boilerplate') -%>
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
 
 
@@ -8,37 +14,61 @@
 <h6>Add new groups</h6>
 <div class="" style="max-width: 30rem;">
 
-<form action="/groups/<%=currentUser._id%>/new" method="POST">
-    <div>
+<form action="/groups/<%=currentUser._id%>/new" method="POST" novalidate class="validated-form">
+    <div class="form-group">
         <label for="name">Name</Label>
-            <textarea class="form-control" name="group[name]" id="name" cols="30" rows="1"></textarea>
+            <input class="form-control" name="group[name]" id="name" cols="30" rows="1" required></input>
     </div>
     <div>
         <label for="address">Address</Label>
-            <textarea class="form-control" name="group[location]" id="location" cols="30" rows="1"></textarea>
+            <input class="form-control" name="group[location]" id="location" cols="30" rows="1" required></input>
     </div>
-
-    
-
     <div>
         <label for="description">Description</Label>
-            <textarea class="form-control" name="group[description]" id="description" cols="30" rows="1"></textarea>
+            <textarea class="form-control" name="group[description]" id="description" cols="30" rows="1" required></textarea>
     </div>
-
+    
     <div>
-        <label for="passwordTrue">Should the group be password-protected?</Label>
-        <input type="checkbox" id="passwordTrue" name="group[passwordTrue]" value = true>
-    </div>
+        <p style="margin-top: 10px;">
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Want the group to be password protected?
+          </a>
 
-
-    <div>
-       
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="group[password]">
-    </div>
-
-
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div>
+                   <label for="password">Password:</label>
+                   <input type="password" id="password" name="group[password]">
+                </div>
+            </div>
+        </div>
+     </div>
+</div> 
     <button class="btn btn-info mt-3 mb-3">Add</button>
+
 </form>
 
-</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.validated-form')
+
+  // Loop over them and prevent submission
+  Array.from(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
