@@ -169,26 +169,21 @@
 
 
 <h6>Your groups</h6>
-
-<div>
-    <% for (let group of user.groups){%>
-        <div class="card border-info mb-4" style="max-width: 100%;">
-
-        <div><%=group.name%>
-
+<div class="card-columns"style="width: 1000px;">
+<% for (let group of user.groups){%>
+    <div class="card shadow-sm " style="width: 45%; margin-bottom: 20px;">
+        <div class="card-header">
+            Name: <b><%=group.name%></b>
         </div>
-        <div>
-            <%=group.description%>
-        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Members: </li>
+            <li class="list-group-item">Description: <%=group.description%></li>
+            <li class="list-group-item">Address: <%=group.geometry%></li>
+        </ul>
         <form action="/groups/<%=currentUser._id%>/leave/<%=group._id%>" method="POST">
-
-            <button class="btn btn-secondary">Leave Group</button>
+            <button class="join btn-secondary "  style="width: 50%; margin-top: 5px; margin-left: 5px; margin-bottom: 10px;" type="button">Leave Group</button>
         </form>
-        </div>
-    <%}%>
-
-
-</div>
-<div>
-     
+        <button style="margin-top: 10px; width: 50%; display: inline-block" onclick="location.href='/add'" type="button" class="new">Add notification</button>
+    </div>
+<%}%>
 </div>

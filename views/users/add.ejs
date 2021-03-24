@@ -1,53 +1,67 @@
 
 <link rel="stylesheet" href="/javascripts/stylesheets/users.css">
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
-<%- include("../partials/sidebar") -%>
+<link rel="stylesheet" href="/javascripts/stylesheets/login.css">
 
+<%- include("../partials/sidebar") -%>
 <% layout('layouts/boilerplate') -%>
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
 
 
-<h2>Add groups</h2>
-
-<% layout('layouts/boilerplate') -%>
-
-<h6>Add new groups</h6>
 <div class="" style="max-width: 30rem;">
 
-<form action="/groups/<%=currentUser._id%>/new" method="POST" novalidate class="validated-form">
-    <div class="form-group">
-        <label for="name">Name</Label>
-            <input class="form-control" name="group[name]" id="name" cols="30" rows="1" required></input>
-    </div>
-    <div>
-        <label for="address">Address</Label>
-            <input class="form-control" name="group[location]" id="location" cols="30" rows="1" required></input>
-    </div>
-    <div>
-        <label for="description">Description</Label>
-            <textarea class="form-control" name="group[description]" id="description" cols="30" rows="1" required></textarea>
-    </div>
-    
-    <div>
-        <p style="margin-top: 10px;">
-          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Want the group to be password protected?
-          </a>
 
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                <div>
-                   <label for="password">Password:</label>
-                   <input type="password" id="password" name="group[password]">
-                </div>
-            </div>
-        </div>
-     </div>
-</div> 
-    <button class="btn btn-info mt-3 mb-3">Add</button>
 
-</form>
+
+  <div class="container d-flex  align-items-center mt-5" style="width: 1000px;">
+      <div class="row">
+          <div class="col-md-6 offset-md-2 col-xl-4 offset-xl-0">
+              <div class="card shadow" style="width: 1000px;">
+              
+
+                <form action="/groups/<%=currentUser._id%>/new" method="POST" novalidate class="validated-form" style="margin-bottom: 10px; width: 98%; margin-left: 10px; margin-top: 10px;">
+                  <h4>Create a new group</h4>
+
+                  <div class="form-group">
+                      <label for="name">Name</Label>
+                          <input class="form-control" name="group[name]" id="name" cols="30" rows="1" required></input>
+                  </div>
+                  <div>
+                      <label for="address">Address</Label>
+                          <input class="form-control" name="group[location]" id="location" cols="30" rows="1" required></input>
+                  </div>
+                  <div>
+                      <label for="description">Description</Label>
+                          <textarea class="form-control" name="group[description]" id="description" cols="30" rows="1" required></textarea>
+                  </div>
+                  
+                  <div>
+                      <p style="margin-top: 10px;">
+                        <a class="btn btn-primary login" style="background-color: rgba(15, 167, 73, 0.383); "data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Want the group to be password protected?
+                        </a>
+              
+                      </p>
+                      <div class="collapse" id="collapseExample">
+                          <div class="card card-body" style="margin-bottom: 10px;">
+                              <div>
+                                 <label for="password">Password:</label>
+                                 <input type="password" id="password" name="group[password]">
+                              </div>
+                          </div>
+                      </div>
+                   </div>
+                                     <button class="login btn-primary btn">Add</button>
+
+              </div> 
+              
+              </form>
+              <button style="margin-top: 10px; width: 100px;" onclick="location.href='/wqerw/groups'" type="button" class="reg">Back</button>
+
+              </div>
+          </div>
+
+
 
 
 <script>

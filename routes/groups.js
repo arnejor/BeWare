@@ -19,10 +19,10 @@ const Group = require("../models/groups");
 const { isLoggedIn } = require("../middleware");
 
 // Searching for groups
-router.get("/groups/search", isLoggedIn, catchAsync(async(req, res, next) => {
+router.get("/adad", isLoggedIn, catchAsync(async(req, res, next) => {
     const groups = Group.find({});
     const q = req.query.groupSearch;
-    console.log(q);
+    console.log("testsetsetsetsetset");
 
 
     // Group.index({ name: 'text' }) ;
@@ -45,6 +45,10 @@ router.get("/groups/search", isLoggedIn, catchAsync(async(req, res, next) => {
 }));   
 
 
+
+
+
+
 // new groups
 router.post("/groups/:id/new", isLoggedIn, catchAsync(async(req, res) => {
     const geoData = await geocoder.forwardGeocode({
@@ -57,7 +61,11 @@ router.post("/groups/:id/new", isLoggedIn, catchAsync(async(req, res) => {
 
     group.geometry = geoData.body.features[0].geometry;
     group.author = req.user._id;
-
+    if(group.password != ""){
+        group.passwordTrue = true
+    } else {
+        group.passwordTrue = false
+    }
     
     await group.save();
 

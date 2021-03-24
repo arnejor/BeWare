@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { schema } = require("./user");
 const Schema = mongoose.Schema;
 
 const groupSchema = new Schema({
@@ -26,5 +27,5 @@ const groupSchema = new Schema({
 
 
 });
-
+groupSchema.index({name: "text"});
 module.exports = mongoose.model("Group", groupSchema)

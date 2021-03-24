@@ -4,11 +4,22 @@
 </div>
 
 <h4>Join new groups</h4>
+<%- include("../partials/sidebar") -%>
 
 <% layout('layouts/boilerplate') -%>
 
+<p>
+    <form action="/join" method="GET">
+        <div>
+            <input type="text" name="search" placeholder="Group search...">
+            <input type="submit" value="Search" class="">
+        </div>
+
+    </form>
+</p>
 
 
+<!-- 
 <h6>Join by map</h6>
 <p>Navigate the map to find the location of the group you want to join:)</p>
 <div id='map' style='width: 480px; height: 300px;'></div>
@@ -26,7 +37,7 @@ new mapboxgl.Marker()
 
 
 </script>
-
+-->
 
 
 <div style="margin-bottom: 300px;">
