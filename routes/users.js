@@ -6,6 +6,7 @@ const User = require("../models/user");
 const { nextTick } = require("process");
 const ExpressError = require("../utils/ExpressError"); 
 const { isLoggedIn } = require("../middleware");
+const flash = require("connect-flash");
 
 
 // Lets the user enter the registration-site
@@ -29,10 +30,14 @@ router.post("/register", catchAsync(async (req, res, next)=>{
     } 
 }));
 
+
+// Login render
 router.get("/login", (req, res) => {
     res.render("users/login");
 });
 
+
+// Login
 router.post("/login", passport.authenticate("local", { failureFlash: true, failureRedirect: "/login"}), (req, res) =>{
     req.flash("success", "Welcome back");
     const redirectUrl = req.session.returnTo || "/notifications";
@@ -43,7 +48,7 @@ router.post("/login", passport.authenticate("local", { failureFlash: true, failu
 
 
 
-
+// Logout
 router.get("/logout", (req, res) => {
     req.logout();
     req.flash("success", "goodbye!");

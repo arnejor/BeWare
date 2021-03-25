@@ -1,31 +1,14 @@
+<link rel="stylesheet" href="/javascripts/stylesheets/users.css">
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
-
+<%- include("../partials/sidebar") -%>
 <% layout('layouts/boilerplate') -%>
 <h4 id="logoFont" style="margin-top: 18px;">Groups</h4>
-
-<p>Here you can administrate your groups. You can see which groups you are currenly in, create new groups or join existing groups. Be aware
-    that some groups require passwords to join.
-</p>
-
-<p>To use the map, please go to the area and set the marker to you desired spot. The click on the marker to search for groups in the area. Be aware that not all groups are shown on the map.
-</p>
-
-
-
-
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
-
-
-<div id="map" style="width: 100%; height: 300px; border-radius: 25px;">
-
-<script>
-    
-</script>
-
-
-<script>
+<!-- <div id="map" style="width: 100%; height: 300px; border-radius: 25px;">
+-->
+<!-- <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiYXJuZWpvciIsImEiOiJja2xrZ3RjaXgwNGxsMndtd2c1dGdiOWhzIn0.yx2qojumUfuRN-4AX2Cxow';
     var map = new mapboxgl.Map({
         container: 'map',
@@ -161,49 +144,29 @@
             map.getCanvas().style.cursor = '';
         });
     });
-</script>
+</script> -->
+</div>
+<div style="margin-bottom: 20px;">
+    <button style="margin-top: 10px;" onclick="location.href='/join'" type="button" class="join">Join groups</button>
+    <button style="margin-top: 10px;" onclick="location.href='/add'" type="button" class="new">Create a new group</button>
 </div>
 
-
-
-
-<p>
-<button onclick="location.href='/join'" type="button" class="btn btn-info">Join groups</button>
-</p>
-    <p>
-
-<button onclick="location.href='/add'" type="button" class="btn btn-info">Create new groups</button>
-
-    </p>
-    <p>
-
-        <button onclick="location.href='/myawareness'" type="button" class="btn btn-info">Back to MyAwareness</button>
-        
-            </p>
-
-
-
-<h4>Your groups</h4>
-
-<div>
-    <% for (let group of user.groups){%>
-        <div class="card border-info mb-4" style="max-width: 30rem;">
-
-        <div><%=group.name%>
-
+<!-- Displays the users groups-->
+<h6>Your groups</h6>
+<div class="card-columns"style="width: 1000px;">
+<% const groups = {}; %>
+<% for (let group of user.groups){%>
+    <div class="card shadow-sm " style="width: 100%; margin-bottom: 40px;">
+        <div class="card-header">
+            Name: <b><%=group.name%></b>
         </div>
-        <div>
-            <%=group.description%>
-        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Members: </li>
+            <li class="list-group-item">Description: <%=group.description%></li>
+        </ul>
         <form action="/groups/<%=currentUser._id%>/leave/<%=group._id%>" method="POST">
-
-            <button class="btn btn-secondary">Leave Group</button>
+            <button class="new">Leave</button>
         </form>
-        </div>
-    <%}%>
-
-
-</div>
-<div>
-     
+    </div>
+<%}%>
 </div>

@@ -79,7 +79,7 @@ body {  margin-top: 0em; }
     border-color: teal;
     margin-top: 0px;
     margin-bottom: 50px;
-    border-radius:25px;
+    border-radius:15px;
     width: 100%;
     border-width: 1px;
 
@@ -113,19 +113,19 @@ body {  margin-top: 0em; }
 
 
 .notification {
-    border-color: rgb(20, 77, 100);
+    border-color: rgb(7, 26, 34);
     border-width: 2px;
     border-top-width: 2px;
     border-radius: 25px;
 
 }
 .notification-head {
-    border-bottom-color: rgba(20, 77, 100);
+    border-bottom-color: rgb(4, 13, 17);
     border-radius: 25px;
     border-top-left-radius: 25px;
-    background-color: rgb(0, 120, 150);
+    background-color: rgb(7, 27, 32);
     border-width: 3px;
-    color: white;
+    color: rgb(0, 0, 0);
     
 
 }
