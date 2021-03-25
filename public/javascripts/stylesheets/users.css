@@ -22,3 +22,8 @@
     background-color: rgba(63, 107, 69, 0.733);
     border-color: black;
 }
+
+.card {
+    display:inline-block;
+    column-break-inside: avoid
+}

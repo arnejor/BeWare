@@ -1,27 +1,13 @@
 <link rel="stylesheet" href="/javascripts/stylesheets/users.css">
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
 <%- include("../partials/sidebar") -%>
-
 <% layout('layouts/boilerplate') -%>
 <h4 id="logoFont" style="margin-top: 18px;">Groups</h4>
-
-
-
-
-
-
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
-
-
 <!-- <div id="map" style="width: 100%; height: 300px; border-radius: 25px;">
 -->
-<script>
-    
-</script>
-
-
 <!-- <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiYXJuZWpvciIsImEiOiJja2xrZ3RjaXgwNGxsMndtd2c1dGdiOWhzIn0.yx2qojumUfuRN-4AX2Cxow';
     var map = new mapboxgl.Map({
@@ -160,16 +146,15 @@
     });
 </script> -->
 </div>
-
 <div style="margin-bottom: 20px;">
-<button style="margin-top: 10px;" onclick="location.href='/join'" type="button" class="join">Join groups</button>
-<button style="margin-top: 10px;" onclick="location.href='/add'" type="button" class="new">Create a new group</button>
+    <button style="margin-top: 10px;" onclick="location.href='/join'" type="button" class="join">Join groups</button>
+    <button style="margin-top: 10px;" onclick="location.href='/add'" type="button" class="new">Create a new group</button>
 </div>
 
-
-
+<!-- Displays the users groups-->
 <h6>Your groups</h6>
 <div class="card-columns"style="width: 1000px;">
+<% const groups = {}; %>
 <% for (let group of user.groups){%>
     <div class="card shadow-sm " style="width: 45%; margin-bottom: 20px;">
         <div class="card-header">
@@ -178,12 +163,12 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Members: </li>
             <li class="list-group-item">Description: <%=group.description%></li>
-            <li class="list-group-item">Address: <%=group.geometry%></li>
         </ul>
         <form action="/groups/<%=currentUser._id%>/leave/<%=group._id%>" method="POST">
-            <button class="join btn-secondary "  style="width: 50%; margin-top: 5px; margin-left: 5px; margin-bottom: 10px;" type="button">Leave Group</button>
+            <button class="new">Leave</button>
+            
+
         </form>
-        <button style="margin-top: 10px; width: 50%; display: inline-block" onclick="location.href='/add'" type="button" class="new">Add notification</button>
     </div>
 <%}%>
 </div>
