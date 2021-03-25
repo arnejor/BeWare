@@ -146,27 +146,38 @@
     });
 </script> -->
 </div>
-<div style="margin-bottom: 20px;">
-    <button style="margin-top: 10px;" onclick="location.href='/join'" type="button" class="join">Join groups</button>
-    <button style="margin-top: 10px;" onclick="location.href='/add'" type="button" class="new">Create a new group</button>
+<div style="margin-bottom: 20px; max-width: 540px;" class="card">
+    <div class="card-body">
+        <button style="margin-top: 10px;" onclick="location.href='/join'" type="button" class="join">Join groups</button>
+        <button style="margin-top: 10px;" onclick="location.href='/add'" type="button" class="new">Create a new group</button>
+    </div>
 </div>
 
 <!-- Displays the users groups-->
-<h6>Your groups</h6>
+<h5 id="logoFont">Your groups</h5>
 <div class="card-columns"style="width: 1000px;">
 <% const groups = {}; %>
 <% for (let group of user.groups){%>
-    <div class="card shadow-sm " style="width: 100%; margin-bottom: 40px;">
-        <div class="card-header">
-            Name: <b><%=group.name%></b>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Members: </li>
-            <li class="list-group-item">Description: <%=group.description%></li>
-        </ul>
-        <form action="/groups/<%=currentUser._id%>/leave/<%=group._id%>" method="POST">
-            <button class="new">Leave</button>
+    <div class="card mb-3 shadow-sm" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Name: <b><%=group.name%></b></h5>
+              <p class="card-text"><%=group.description%></p>
+                            <p class="card-text"><small class="text-muted">Last active: </small></p>
+
+              <form action="/groups/<%=currentUser._id%>/leave/<%=group._id%>" method="POST">
+            <button class="new" style="background-color: brown;">Leave</button>
         </form>
-    </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
 <%}%>
 </div>
+
