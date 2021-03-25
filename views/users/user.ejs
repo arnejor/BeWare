@@ -156,7 +156,7 @@
 <div class="card-columns"style="width: 1000px;">
 <% const groups = {}; %>
 <% for (let group of user.groups){%>
-    <div class="card shadow-sm " style="width: 45%; margin-bottom: 20px;">
+    <div class="card shadow-sm " style="width: 100%; margin-bottom: 40px;">
         <div class="card-header">
             Name: <b><%=group.name%></b>
         </div>
@@ -166,8 +166,6 @@
         </ul>
         <form action="/groups/<%=currentUser._id%>/leave/<%=group._id%>" method="POST">
             <button class="new">Leave</button>
-            
-
         </form>
     </div>
 <%}%>

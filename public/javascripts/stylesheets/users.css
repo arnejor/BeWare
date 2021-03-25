@@ -23,7 +23,3 @@
     border-color: black;
 }
 
-.card {
-    display:inline-block;
-    column-break-inside: avoid
-}

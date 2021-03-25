@@ -21,8 +21,13 @@ const { isLoggedIn } = require("../middleware");
 // Searching for groups// Arne's Search Engine
 router.get("/query", isLoggedIn, catchAsync(async(req, res, next) => {
     const q = req.query.search;
-    groups = await Group.find({$text: {$search: q}}); 
+    groups = await Group.find({$text: {$search: q}});
+    if(!groups){
+        req.flash("success", "Could not find a group by that name..", group.name);
+
+    }
     res.redirect("/join")
+    
 }));   
 
 
