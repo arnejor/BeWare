@@ -18,20 +18,20 @@ body {  margin-top: 0em; }
 
 
 .typeBtn{
-    background-color: teal;
+    background-color: rgb(0, 128, 58);
     border-radius: 25px;
     border-style: solid;
     border-width: 1px;
 }
 
 .testBtn {
-    background-color: rgb(0, 124, 128);
+    background-color: rgb(0, 128, 58);
 }
 
 .radioBtn {
     width: 24%;
     color: black;
-    background-color: rgba(0, 128, 128, 0.534);
+    background-color: rgba(4, 128, 0, 0.534);
     border-color: rgb(3, 17, 13);
     border-radius: 25px;
     border-style: solid;

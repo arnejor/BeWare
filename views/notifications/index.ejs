@@ -1,6 +1,7 @@
 
 <%- include("../partials/sidebar") -%>
 <%- include("../partials/timedate") -%>
+<link rel="stylesheet" href="/javascripts/stylesheets/login.css">
 
 <link rel="stylesheet" href="/javascripts/stylesheets/style.css">
 
@@ -24,13 +25,13 @@
 
 
 
-<div style="display: flex; justify-content: space-around; width: 100%;">
+<div style=" card shadow card-body display: flex; justify-content: space-around; width: 100%;">
     
-    <div style="border-left-width: 0px; border-left-style: solid; margin-bottom: 20px; width: 60%;" >
+    <div style="border-left-width: 0px; border-left-style: solid; margin-bottom: 20px; width: 100%;" >
         <h4 style="text-shadow: black; margin-top: 0px;" id="logoFont">Notifications</h4>
 
     <!-- This is the new notification form-->    
-        <div style="" class="newNotification">
+        <div style="" class="card card-body">
             <form action="/notifications" method="POST" novalidate class="validated-form">
         <!-- TYPE INPUT-->
         <script>
@@ -55,118 +56,81 @@
             })
         })()
         </script>
-
-            <!-- Notification-->
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Notification" autocomplete="off" value="Notification" checked>
-            <label class="btn btn-outline-info radioBtn not" for="Notification"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-              </svg> Notification</label>
-
-            <!-- Complaint -->
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Complaint" autocomplete="off" value="Complaint" >
-            <label class="radioBtn btn btn-outline-info com " for="Complaint" >Complaint</label>
-
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Alert" autocomplete="off" value="Altert" >
-            
-            <!-- Alert -->
-            <label class="btn btn-outline-info radioBtn al" for="Alert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16" >
-                <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
-              </svg> Alert</label>
-
-            <!-- Worry -->
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Worry" autocomplete="off" value="Worry" >
-            <label class="btn btn-outline-info radioBtn wor" for="Worry"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-              </svg> Worry</label>
-
-        <!-- TEXT INPUT -->
+            <!-- TEXT INPUT -->
             <div class="form-div">
                 <label class="" for="" ></label>
                 <input class="userText" type="" placeholder="Enter your message:" id="message" name="notification[message]" required>
             </div>
 
+            <!-- Notification-->
+            <input type="radio" class="btn-check " name="notification[type]" id="Notification" autocomplete="off" value="Notification" checked>
+            <label class="btn btn-outline-info radioBtn" for="Notification"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+              </svg> Notification</label>
+
+            <!-- Complaint -->
+            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Complaint" autocomplete="off" value="Complaint" >
+            <label class="radioBtn btn btn-outline-info " for="Complaint" >Complaint</label>
+
+            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Alert" autocomplete="off" value="Altert" >
+            
+            <!-- Alert -->
+            <label class="btn btn-outline-info radioBtn " for="Alert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16" >
+                <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
+              </svg> Alert</label>
+
+            <!-- Worry -->
+            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Worry" autocomplete="off" value="Worry" >
+            <label class="btn btn-outline-info radioBtn " for="Worry"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+              </svg> Worry</label>
+
+        
+
         <!-- GROUP INPUT-->
+        <div class="card" style="margin-top: 10px; margin-bottom: 10px;">
+            
             <% for (let group of user.groups){%>
-            <div>
+            <div  style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px;">
                 <input type="checkbox" id="groups" name="notification[groups]" value="<%=group._id%>" >
                 <label for="groups"><%=group.name%> </label>
             </div>
             <% } %>
-
+        </div>
             <!-- trying to add date -->
             <script>
                 const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             </script>
-        <button class="buttonText btn btn-success testBtn" style="color: rgb(255, 255, 255);">Add Notification</button>
+        <button class=" btn btn-success login" style="color: rgb(255, 255, 255);">Add Notification</button>
             </form>
         </div>
     </div>
-    <!-- Here I try to add sorting functionality-->
-    <div style="width: 30%; " >
-        <h4>Sort Notifications</h4>
-        
-        <div class="newNotification" style=" width: 100%;" >
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis officia iusto velit recusandae! Praesentium, ipsam, ea ullam animi dolorem omnis autem mollitia maiores ducimus nemo, asperiores possimus id modi explicabo!</p>
-        </div>
-    </div>
+    
 
     </div>
 </div>
 <!--test -->
 
-<div class="card">
-    <div class="card-body">
-<!-- TEXT INPUT -->
-            <div class="form-div">
-                <label class="" for="" ></label>
-                <input class="userText" type="" placeholder="Enter your message:" id="message" name="notification[message]" required>
-            </div>  
-            
-            <!-- Notification-->
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Notification" autocomplete="off" value="Notification" checked>
-            <label class="btn btn-outline-info radioBtn not" for="Notification"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-              </svg> Notification</label>
-
-            <!-- Complaint -->
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Complaint" autocomplete="off" value="Complaint" >
-            <label class="radioBtn btn btn-outline-info com " for="Complaint" >Complaint</label>
-
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Alert" autocomplete="off" value="Altert" >
-            
-            <!-- Alert -->
-            <label class="btn btn-outline-info radioBtn al" for="Alert"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16" >
-                <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
-              </svg> Alert</label>
-
-            <!-- Worry -->
-            <input type="radio" class="btn-check typeBtn" name="notification[type]" id="Worry" autocomplete="off" value="Worry" >
-            <label class="btn btn-outline-info radioBtn wor" for="Worry"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-              </svg> Worry</label>
-    </div>
-</div>
-
 <% let i = 0%>
 <% const note = notifications%>
 
 <% for(i in note){ %>
+    <div style="height: 20px;"></div>
 <%const notification = note[i]%>
 <% if (currentUser.groups.includes(notification.groups[0]) || currentUser.groups.includes(notification.groups[1]) || currentUser.groups.includes(notification.groups[2]) ){%>
     <% if (notification.type === "Worry") { %>
-        <div class="card mb-5 worry" style=" border-radius: 25px; background-color: rgba(165, 42, 42, 0.082);">
-        <div class="header-info worry-head   card-header   " style="border-top-left-radius: 25px; border-top-right-radius: 25px;">
+        <div class="card mb-5 mt-5 shadow-sm" style="margin-top: 30px;">
+            <div class="header-info worry-head  mt-5    " style="margin-top: 30px;">
     <%} else if (notification.type === "Notification") {%>
-        <div class="card mb-5 notification" style=" border-radius: 25px; background-color: rgba(0, 255, 255, 0.116);">
-        <div class="card-header header-info notification-head" style="border-top-left-radius: 25px; border-top-right-radius: 25px;">
+        <div class="card mb-3 shadow-sm" style=" ">
+            <div class="card-header header-info " style="">
     <%} else if (notification.type === "Complaint") {%>
-        <div class="card mb-5 complaint" style=" border-radius: 25px;">
-        <div class="card-header header-info complaint-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+        <div class="card mb-3 shadow-sm" style="">
+            <div class="card-header header-info" style="">
     <%} else {%>
-        <div class="card mb-5 alert1" style="border-radius: 25px;">   
-        <div class="card-header header-info alert1-head" style="border-top-left-radius: 22px; border-top-right-radius: 22px;">
+        <div class="card mb-3 shadow-sm" style="">   
+            <div class="card-header header-info " style="">
     <%}%>
         <p>Groups:
         <% for (let group of user.groups) { %>
@@ -184,11 +148,10 @@
         </div>    
         <div class="card-footer bg-transparent border-success">
     <% if (currentUser && notification.author.equals(currentUser._id)) { %>
-            <div style="width: 1000px; ">
-                    <div>
+            <div style="width: 100%; ">
+                    <div style="width: 45%;">
                          <button onclick="location.href='/notifications/<%=notification._id%>/edit'" type="button" class="btn btn-info" style="border-radius: 30px;">Edit notification</button>
-                    </div>
-                    <div>
+                    
                         <form action="/notifications/<%=notification._id%>/delete?_method=DELETE" method="POST" >
                                 <button class="btn btn-secondary" style="border-radius: 30px;">Delete notification</button>
                         </form>
