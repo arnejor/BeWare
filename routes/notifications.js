@@ -10,10 +10,14 @@ const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 // FIX THIS TO THE .env FILE
 const geocoder = mbxGeocoding({ accessToken: "pk.eyJ1IjoiYXJuZWpvciIsImEiOiJja2xrZ3RjaXgwNGxsMndtd2c1dGdiOWhzIn0.yx2qojumUfuRN-4AX2Cxow" });
+// const send = require("../client/client.js");
+const webPush = require('web-push');
+const bodyParser = require("body-parser");
 
 
 const ExpressError = require("../utils/ExpressError");
 const Notification = require("../models/notification");
+const user = require("../models/user");
 
 const validateNotification = (req, res, next) => {
     const { error } = notificationSchema.validate(req.body);
@@ -88,21 +92,32 @@ router.get("/new", isLoggedIn, catchAsync(async(req, res) => {
 }));
 
 
-
 // Creates a new notification
 router.post("/", isLoggedIn, validateNotification, catchAsync(async(req, res, next) => {
     // if(!req.body.notification) throw new ExpressError("Invalid Notification Data", 400);
     
     
     const notification = new Notification(req.body.notification);
-
     notification.author = req.user._id;
     notification.date = Date();
     console.log(Date());
     const groups = await Group.find({});
     await notification.save();
     req.flash("success", "Successfully created a new notification");
-    res.redirect('/notifications') 
+    res.redirect('/notifications');
+    
+    // Send push notification to all group-members
+    console.log(notification.groups)
+
+    const CU = await User.find({ groups: notification.groups });
+    console.log("Users to get notified: ");
+    console.log(CU);
+    
+
+    for(let users of CU){
+        console.log(users);
+    }
+ 
 }));
 
 // Error handeling and rendering

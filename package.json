@@ -1,5 +1,5 @@
 {
-  "name": "CloudAwareness",
+  "name": "BeWare",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,10 +14,14 @@
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "firebase": "^8.3.1",
+    "firebase-admin": "^9.6.0",
     "joi": "^17.4.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.15",
@@ -27,6 +31,18 @@
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
+    "react": "^17.0.2",
+    "react-infinite-scroll-component": "^6.0.0",
     "web-push": "^3.4.4"
-  }
+  },
+  "type": "service_account",
+  "project_id": "beware-df55f",
+  "private_key_id": "8ecb6d232c37a279dc507e99b9fb1c007682a5a0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDPFFxNu0kar8iG\nU0HSJ8WBFJzw6uTZRN36Ukba2JaGg5yCDsN2Eqc4rGYeNLPckFRG+s5qJ3AjV0Rd\nsUY/92fMdOoUarrS1eQk4M1RbDgohNtVtHDe+pqgxbxlHsO1q+ccgPyNU7pgISnK\nApQkImTiCkAXJF/Ko2rrB9IuK3av0OV3e87rlhLRoYlxxRPzz8Rjr6D9e72HuuSb\nDDw6TJoN7bOq/z4rEWYUgQucATGSbUJ2crmCRRYwZGlWN+4zzpBGQeNCF9TpTTju\nYePj/eeVba2+MReVBQxjeP1repNUbhht8iyDAQ8Ywo/3kPxzq3yAOEynDwmdPbP8\nRylJ5e+PAgMBAAECggEAEmYtuV5dpXhe6ch1/bU48Dojo6hLQx7CVl5/GyzJWxRQ\nkKG9Lj2EDB4NSLvIC13rjw7zzizI4ur7ERQSONbDqz/sGHpPNTJ5/ejXdVeXOcps\nLpZEvRspKAXJsnZkTz0B4N95ERmSYr4vl1pZTUidDBR7E1NRC5Evi8h7HU0RU5ek\nDo5rrvZpNh9T0ks3T0sbdCCv2u2gEj+gDMgfYmhceWTvZMq4+ArAPK1iT/ECNUkX\nhopCJLPUV6PMITjPJjq+Ee0eitmUUNl+GeoGjYTZV3LBESJz2gQB+Lz255z+xgje\nYUDbGczxRRkjJiAv6N1frmt9DrMTzfbAw0PsZGsx+QKBgQDrydivFADcNflMQ9G7\nDDNkw7BNrDFbprOg7vU+xcET7GNTxZONCJd3iVefi33cv6yQFJ+Th/EY8Izbsam5\nh3kwirlhdA6Aeyu7zSCGufuUtboBzdmqdkKn0l7OeSau3vyzj0abWwaoD/zPSY2j\naYr8iFglL6bB2f+Z+xDuUs1VBQKBgQDg1IYkTz9jg+/m8IgjM+nN9pl2atsyzK/D\ngB5eXyVblcMkEt+47TRpwTWwPNuxC8KjtudisXtKbcce/E87yygfS+a+kFmk3V38\nH3J+o/JIfECCImSo7xvnPN7vqFdkerv7ZVH/Y1O7wBUvGs7lzwcFXOV/KmCQhUX7\nq0bdFoEWgwKBgByR75x/Ov9z1spD6XTVrKCICaPPuodVcqyMZ9D8W0HTwdFTvmY3\nZUsJrEFbwJtv6jPnG9LfhPo1o4u3Qk6FuMyF8qJ5UoyE4C64Uzmf7Xj+cBRp4fcC\nr17wYaZ5DZPg1xPWx4JpjCvvC/399piXYEzrJGsVFAqnJI5+2nVWOSUVAoGAAjSz\nmDma0pwhx29Gtqm0uouX19yWh/oQI2fnZF+kmzBt+LWiskrJf9wgbbk7IpKN91M9\nE+/P2NwY3wn0sQ5+N0hkXCxIZOCzIl0gn3N2VhW6AEzcFfg6mtszCMDrEpZNr9q/\nojTURnxM+OhXbVPJqtjNe6Drz58vH5f/mv20iIcCgYB5Oip6RJN4OKYZ1aF6582y\nzbtdxD03fv+d95fDJCq4+SJES4cNCHeYPyIhlddFhNyuCef5hKmWVuhdeFS5t+qb\n8OAHXFKubyYJBZqzTVU29KAB55txsyS5EXGDQuPynHv0RnWKSNFF6T8UszlaYmW3\n1kTaVS2ajTBHTrG0gsYQ2Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-551w5@beware-df55f.iam.gserviceaccount.com",
+  "client_id": "113639561507340075860",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-551w5%40beware-df55f.iam.gserviceaccount.com"
 }
