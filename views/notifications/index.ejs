@@ -124,7 +124,6 @@
     </div>
    </div>
 </div>
-<% let i = 0%>
 <% const note = notifications%>
 
 <% const noteArray = [] %>
@@ -132,15 +131,18 @@
     <% if (currentUser.groups.includes(notification.groups[0]) || currentUser.groups.includes(notification.groups[1]) || currentUser.groups.includes(notification.groups[2]) ){%>
         <% noteArray.push(notification);%>
     <%}%>
-<%}%>
+<%};%>
 
 <!-- This is the new indexing-function. This is easier to controll the number of loaded notifications-->
 <!-- The while loop controls the number of loaded notifications.-->
-<% while(i < 5){ %>
-    <% let notification = noteArray[i] %>
-    <%i++%>
+<!-- BUG::::::  If a given user has a lower number of notifications to be displayed than the set number in the while-loop, there is a bug.-->
+<% let i = 0;%>
 
-   
+<% while(i < 2){ %>
+
+    <% const notification = noteArray[i]; %>
+
+    <%i++%>
 
         <% if (notification.type === "Worry") { %>
             <div class="card mb-5 mt-5 shadow-sm" style="margin-top: 30px;">
